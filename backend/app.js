@@ -1,10 +1,12 @@
 const express = require('express')
 const _ = require('lodash');
 const app = express()
+const cors = require('cors')
 const port = 3005
 const knex = require('knex')(require('./knexfile.js')['development']);
 
 app.use(express.json());
+app.use(cors());
 
 app.get('/wishes', function(req, res) {
     const author = req.query.author ? _.startCase(_.toLower(req.query.author)): "%";
@@ -44,9 +46,9 @@ app.get('/randomwish', function(req, res) {
 })
 
 app.post('/wish', function(req, res){
-
     let auth_id = 0;
     let author = _.startCase(_.toLower(req.body.author));
+    console.log("Body", req.body);
     knex.select('*')
         .from('authors')
         .where({name: author})
