@@ -1,3 +1,7 @@
+# WishCHAN
+
+WishChan is an app where users can submit wishes to the global community, with credit or anonymously!  The backend can be ported to provide a site with a message of the day, or randon tips or even inspirational qoutes!  There are many uses!
+
 # Set up
 
 ## Backend
